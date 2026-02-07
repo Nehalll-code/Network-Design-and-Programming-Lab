@@ -1,4 +1,4 @@
-# Network-Programming-Lab
+# Network Design and Programming-Lab
 
 Each lab directory contains:
 - `server.c` – Server-side program
