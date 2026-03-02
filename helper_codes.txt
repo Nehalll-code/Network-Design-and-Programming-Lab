@@ -1,0 +1,108 @@
+🔥 1️⃣ Vowels / Consonants Templates
+✅ Extract vowels
+if(strchr("AEIOUaeiou", buff[i]))
+{
+    out[j++] = buff[i];
+}
+✅ Extract consonants
+if(isalpha(buff[i]) && !strchr("AEIOUaeiou", buff[i]))
+{
+    out[j++] = buff[i];
+}
+🔥 2️⃣ Uppercase / Lowercase Templates
+✅ Only uppercase
+if(isupper(buff[i]))
+    out[j++] = buff[i];
+✅ Only lowercase
+if(islower(buff[i]))
+    out[j++] = buff[i];
+✅ Convert to uppercase
+out[j++] = toupper(buff[i]);
+🔥 3️⃣ Digit-Based Templates
+✅ All digits
+if(isdigit(buff[i]))
+    num[j++] = buff[i];
+✅ Digits greater than 5
+if(buff[i] >= '6' && buff[i] <= '9')
+    num[j++] = buff[i];
+✅ Even digits
+if(isdigit(buff[i]) && (buff[i]-'0')%2==0)
+    num[j++] = buff[i];
+✅ Odd digits
+if(isdigit(buff[i]) && (buff[i]-'0')%2!=0)
+    num[j++] = buff[i];
+🔥 4️⃣ Sorting Templates (Most Reused)
+✅ Ascending sort
+for(int a=0;a<n-1;a++)
+for(int b=0;b<n-a-1;b++)
+if(arr[b] > arr[b+1])
+{
+    char t = arr[b];
+    arr[b] = arr[b+1];
+    arr[b+1] = t;
+}
+✅ Descending sort
+if(arr[b] < arr[b+1])
+
+That’s it. They never change algorithm — only the condition.
+
+🔥 5️⃣ Sum / Count / Product Templates
+
+They LOVE mixing arithmetic into fork programs.
+
+✅ Sum of digits
+sum += buff[i] - '0';
+✅ Count vowels
+if(strchr("AEIOUaeiou", buff[i]))
+    count++;
+✅ Product of digits
+product *= buff[i] - '0';
+✅ Average of digits
+avg = (float)sum / count;
+🔥 6️⃣ Reverse String Template
+
+Very common twist.
+
+int len = strlen(out);
+for(int i=len-1;i>=0;i--)
+    printf("%c", out[i]);
+🔥 7️⃣ Remove Duplicate Characters
+
+They ask this surprisingly often.
+
+int seen[256]={0};
+if(!seen[(int)buff[i]])
+{
+    out[j++] = buff[i];
+    seen[(int)buff[i]] = 1;
+}
+🔥 8️⃣ Replace Characters (Transformation Questions)
+Replace vowels with *
+if(strchr("AEIOUaeiou", buff[i]))
+    out[j++]='*';
+else
+    out[j++]=buff[i];
+Toggle case
+if(isupper(buff[i])) out[j++]=tolower(buff[i]);
+else if(islower(buff[i])) out[j++]=toupper(buff[i]);
+🔥 9️⃣ Special Character Extraction
+if(!isalnum(buff[i]) && !isspace(buff[i]))
+    out[j++] = buff[i];
+🔥 10️⃣ Palindrome Check (Very Common Lab Twist)
+int l=0, r=strlen(out)-1;
+int flag=1;
+while(l<r)
+{
+    if(out[l++]!=out[r--])
+        flag=0;
+}
+🔥 11️⃣ Parent vs Child Split Templates
+
+They often ask logic separation.
+
+Parent handles alphabets
+if(isalpha(buff[i]))
+Child handles digits
+if(isdigit(buff[i]))
+🔥 12️⃣ Send Result Back to Client (Advanced but common)
+send(ns, out, strlen(out)+1, 0);
